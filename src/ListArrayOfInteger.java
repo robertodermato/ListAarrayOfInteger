@@ -229,4 +229,33 @@ public class ListArrayOfInteger {
         }
     }
 
+    // Este método retorna um arranjo com os elementos da lista original entre fromIndex (inclusivo) e toIndex (exclusivo).
+    public int[] subList(int fromIndex, int toIndex){
+        if ((fromIndex < 0) || (fromIndex >= count) ||(toIndex < 0) || (toIndex >= count) ) {
+            throw new IndexOutOfBoundsException();
+        }
+        int [] newArray = new int [toIndex-fromIndex];
+
+        for (int i=0; i<newArray.length; i++){
+            newArray[i] = data[fromIndex];
+            fromIndex++;
+        }
+
+        return newArray;
+    }
+
+    // Este método inverte o conteúdo da lista.
+    public void reverse(){
+        int aux =0;
+        int j = count-1;
+        for (int i=0; i<count/2; i++){
+            aux = data[i];
+            data [i] = data [j];
+            data[j] = aux;
+            j--;
+        }
+    }
+
+    // Este método conta o número de ocorrências do elemento passado como parâmetro na lista, retornando este valor.
+    public int contaOcorrencias(int element){return 0;}
 }

@@ -7,22 +7,31 @@ public class App {
 
         ListArrayOfInteger L1 = new ListArrayOfInteger();
         Random r = new Random();
-        for (int i = 0; i < 20; i++) {
-            L1.add(r.nextInt(100));
+        for (int i = 0; i < 10; i++) {
+            L1.add(r.nextInt(20));
         }
 
-        int tam = 10;
-        ListArrayOfInteger L2 = new ListArrayOfInteger();
-        for (int i = 0; i < tam / 2; i++) {
-            L2.add(i);
-            L2.add(0, i);
-        }
+        //int tam = 10;
+        //ListArrayOfInteger L2 = new ListArrayOfInteger();
+        //for (int i = 0; i < tam / 2; i++) {
+        //    L2.add(i);
+        //    L2.add(0, i);
+        //}
         System.out.println("L1: " + L1);
-        System.out.println("L2: " + L2);
+        //System.out.println("L2: " + L2);
 
-        L2.remove(0);
-        L2.removeByIndex(0);
-        System.out.println("L2 apos remocoes: " + L2);
+        //L2.remove(0);
+        //L2.removeByIndex(0);
+        //System.out.println("L2 apos remocoes: " + L2);
+
+        // Testa Sublist
+        //int [] l3 = L1.subList(3, 6);
+        //for (int i=0; i<l3.length; i++){
+        //    System.out.println(l3[i]);
+        //}
+
+        L1.reverse();
+        System.out.println("L1: " + L1);
     }
 }
 
