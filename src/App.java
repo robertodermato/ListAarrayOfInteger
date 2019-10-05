@@ -8,7 +8,7 @@ public class App {
         ListArrayOfInteger L1 = new ListArrayOfInteger();
         Random r = new Random();
         for (int i = 0; i < 10; i++) {
-            L1.add(r.nextInt(20));
+            L1.add(r.nextInt(10));
         }
 
         //int tam = 10;
@@ -30,8 +30,11 @@ public class App {
         //    System.out.println(l3[i]);
         //}
 
-        L1.reverse();
-        System.out.println("L1: " + L1);
+        //L1.reverse();
+        //System.out.println("L1: " + L1);
+
+        int contador = L1.contaOcorrencias(5);
+        System.out.println(contador);
     }
 }
 

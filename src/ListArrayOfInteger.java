@@ -257,5 +257,10 @@ public class ListArrayOfInteger {
     }
 
     // Este método conta o número de ocorrências do elemento passado como parâmetro na lista, retornando este valor.
-    public int contaOcorrencias(int element){return 0;}
+    public int contaOcorrencias(int element){
+        int contador = 0;
+        for (int i=0; i<count; i++){
+            if (data[i]==element) contador++;
+        }
+        return contador;}
 }
