@@ -67,7 +67,7 @@ public class ListArrayOfInteger {
     /**
      * Insere um elemento em uma determinada posição da lista
      *
-     * @param index a posição da lista onde o elemento será inserido
+     * @param index   a posição da lista onde o elemento será inserido
      * @param element elemento a ser inserido
      * @throws IndexOutOfBoundsException se (index < 0 || index > size())
      */
@@ -108,6 +108,11 @@ public class ListArrayOfInteger {
         data[count - 1] = null;
         count--;
 
+        if (count <= data.length / 4) {
+            setCapacity(data.length / 2);
+            System.out.println("Nova capacidade setada para " + (data.length / 2));
+        }
+
         return aux;
     }
 
@@ -127,6 +132,10 @@ public class ListArrayOfInteger {
                 }
                 data[count - 1] = null;
                 count--;
+                if (count <= data.length / 4) {
+                    setCapacity(data.length / 2);
+                    System.out.println("Nova capacidade setada para " + (data.length / 2));
+                }
                 return true;
             }
         }
@@ -151,7 +160,7 @@ public class ListArrayOfInteger {
      * Substitui o elemento armanzenado em uma determinada posição da lista pelo
      * elemento indicado
      *
-     * @param index a posição da lista
+     * @param index   a posição da lista
      * @param element o elemento a ser armazenado na lista
      * @return o elemento armazenado anteriormente na posição da lista
      * @throws IndexOutOfBoundsException se (index < 0 || index >= size())
@@ -230,13 +239,13 @@ public class ListArrayOfInteger {
     }
 
     // Este método retorna um arranjo com os elementos da lista original entre fromIndex (inclusivo) e toIndex (exclusivo).
-    public int[] subList(int fromIndex, int toIndex){
-        if ((fromIndex < 0) || (fromIndex >= count) ||(toIndex < 0) || (toIndex >= count) ) {
+    public int[] subList(int fromIndex, int toIndex) {
+        if ((fromIndex < 0) || (fromIndex >= count) || (toIndex < 0) || (toIndex >= count)) {
             throw new IndexOutOfBoundsException();
         }
-        int [] newArray = new int [toIndex-fromIndex];
+        int[] newArray = new int[toIndex - fromIndex];
 
-        for (int i=0; i<newArray.length; i++){
+        for (int i = 0; i < newArray.length; i++) {
             newArray[i] = data[fromIndex];
             fromIndex++;
         }
@@ -245,22 +254,71 @@ public class ListArrayOfInteger {
     }
 
     // Este método inverte o conteúdo da lista.
-    public void reverse(){
-        int aux =0;
-        int j = count-1;
-        for (int i=0; i<count/2; i++){
+    public void reverse() {
+        int aux = 0;
+        int j = count - 1;
+        for (int i = 0; i < count / 2; i++) {
             aux = data[i];
-            data [i] = data [j];
+            data[i] = data[j];
             data[j] = aux;
             j--;
         }
     }
 
     // Este método conta o número de ocorrências do elemento passado como parâmetro na lista, retornando este valor.
-    public int contaOcorrencias(int element){
+    public int contaOcorrencias(int element) {
         int contador = 0;
-        for (int i=0; i<count; i++){
-            if (data[i]==element) contador++;
+        for (int i = 0; i < count; i++) {
+            if (data[i] == element) contador++;
         }
-        return contador;}
+        return contador;
+    }
+
+    // addFirst (que adiciona um elemento no início da lista)
+    public void addFirst(int element) {
+        if (count == data.length) {
+            setCapacity(data.length * 2);
+        }
+        for (int i = count; i > 0; i--) {
+            data[i] = data[i - 1];
+        }
+        data[0] = element;
+        count++;
+    }
+
+    // removeFirst (que remove o primeiro elemento da lista) para esta classe.
+    public int removeFirst() {
+        if (isEmpty()) {            throw new IndexOutOfBoundsException();        }
+
+        int aux = data[0];
+
+        for (int i = 0; i < count - 1; i++) {
+            data[i] = data[i + 1];
+        }
+
+        data[count - 1] = null;
+        count--;
+
+        if (count <= data.length / 4) {
+            setCapacity(data.length / 2);
+            System.out.println("Nova capacidade setada para " + (data.length / 2));
+        }
+
+        return aux;
+    }
+
+    // Considere que duas instâncias de ListArrayOfInteger foram criadas e inicializadas com alguns valores aleatórios, e
+    // apresente o algoritmo necessário para descobrir e mostrar qual o maior valor que está armazenado nas duas listas
+    // simultaneamente. Qual é a notação O para este algoritmo?
+    public int achaMaior (ListArrayOfInteger l1, ListArrayOfInteger l2){
+        int maior = Integer.MIN_VALUE;
+
+        for (int i=0; i<l1.size(); i++){
+            int valor = l1.get(i);
+            if (valor > maior && l2.contains(valor)) maior = valor;
+        }
+
+        return maior;
+    }
+
 }

@@ -11,6 +11,12 @@ public class App {
             L1.add(r.nextInt(10));
         }
 
+        ListArrayOfInteger L4 = new ListArrayOfInteger();
+        for (int i = 0; i < 10; i++) {
+            L4.add(r.nextInt(10));
+        }
+
+
         //int tam = 10;
         //ListArrayOfInteger L2 = new ListArrayOfInteger();
         //for (int i = 0; i < tam / 2; i++) {
@@ -33,8 +39,72 @@ public class App {
         //L1.reverse();
         //System.out.println("L1: " + L1);
 
-        int contador = L1.contaOcorrencias(5);
-        System.out.println(contador);
+        //int contador = L1.contaOcorrencias(5);
+        //System.out.println(contador);
+
+        /*
+        ListArrayOfInteger L3 = new ListArrayOfInteger(20);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        L3.add(4);
+        L3.add(5);
+        System.out.println(L3);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(4);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        L3.remove(5);
+        System.out.println(L3);
+        */
+
+        //L1.addFirst(2);
+        //System.out.println(L1);
+
+        //int a = L1.removeFirst();
+        //System.out.println(L1);
+        //System.out.println(a);
+
+        int maior = L1.achaMaior(L1, L4);
+        System.out.println(L1);
+        System.out.println(L4);
+        System.out.println(maior);
     }
 }
 
