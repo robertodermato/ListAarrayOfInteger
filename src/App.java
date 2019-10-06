@@ -105,6 +105,15 @@ public class App {
         System.out.println(L1);
         System.out.println(L4);
         System.out.println(maior);
+        System.out.println();
+
+        int [] v1 = {2,3,4,5,6,7};
+        int [] v2 = {3,4,7,6, 8,9,12,13};
+         int [] v3 = ListArrayOfInteger.interseccao(v1, v2);
+
+         for (int i=0; i<v3.length; i++){
+             System.out.println(v3[i]);
+         }
     }
 }
 

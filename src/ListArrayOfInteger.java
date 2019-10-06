@@ -309,7 +309,7 @@ public class ListArrayOfInteger {
 
     // Considere que duas instâncias de ListArrayOfInteger foram criadas e inicializadas com alguns valores aleatórios, e
     // apresente o algoritmo necessário para descobrir e mostrar qual o maior valor que está armazenado nas duas listas
-    // simultaneamente. Qual é a notação O para este algoritmo?
+    // simultaneamente. Qual é a notação O para este algoritmo? Esse é O (n^2)
     public int achaMaior (ListArrayOfInteger l1, ListArrayOfInteger l2){
         int maior = Integer.MIN_VALUE;
 
@@ -321,4 +321,29 @@ public class ListArrayOfInteger {
         return maior;
     }
 
+    // Escreva um algoritmo que recebe dois vetores A e B por parâmetro representando conjuntos de m e n elementos,
+    // respectivamente, e preenche um vetor C que deve conter a intersecção dos conjuntos, ou seja,
+    // os elementos que estão em A e em B simultaneamente.
+    // Lembre que conjuntos não têm ordem nem repetições de elementos.
+    // Analise seu algoritmos em notação O.
+
+    public static int [] interseccao (int [] v1, int[] v2){
+        int [] interseccao = new int [v1.length+v2.length];
+        int index = 0;
+
+        for (int i=0; i<v1.length; i++){
+            for (int j=0; j<v2.length; j++){
+                if (v1[i]==v2[j]) {interseccao[index] = v1[i]; index++;}
+            }
+        }
+
+        // só para tirar os espaços vazios do vetor
+        int [] interseccaoEnxuto = new int [index];
+
+        for (int k=0; k<interseccaoEnxuto.length; k++){
+            interseccaoEnxuto[k] = interseccao[k];
+        }
+
+        return interseccaoEnxuto;
+    }
 }
